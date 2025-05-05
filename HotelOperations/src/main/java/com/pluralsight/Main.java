@@ -8,8 +8,11 @@ public class Main {
 
 
     public static void testEmployee(){
+
         Employee e1 = new Employee(1, "Matt", "Facilitators", 10);
+
         e1.setHoursWorked(39);
+
         System.out.println(e1.getTotalPay());
 
         Employee e2 = new Employee(1, "Matt", "Facilitators", 10);
