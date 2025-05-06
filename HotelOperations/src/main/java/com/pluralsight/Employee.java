@@ -74,4 +74,16 @@ public class Employee {
         return (hoursWorked > 40) ? hoursWorked - 40 : 0;
     }
 
+    private double punchInTime;
+
+    public void punchIn(double time){
+        this.punchInTime = time;
+    }
+
+    public void punchOut(double punchOutTime){
+
+        this.hoursWorked +=  (punchOutTime - this.punchInTime);
+
+    }
+
 }
