@@ -38,6 +38,10 @@ public class Main {
 
         Employee e2 = new Employee(1, "Matt", "Facilitators", 10);
         //e2.setHoursWorked(40);
+        e2.punchIn();
+        e2.punchOut(12);
+        System.out.println(e2.getHoursWorked());
+
         System.out.println(e2.getTotalPay());
 
         Employee e3 = new Employee(1, "Matt", "Facilitators", 10);
