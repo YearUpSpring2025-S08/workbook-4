@@ -5,20 +5,15 @@ import java.util.ArrayList;
 public class Hand {
 
     private ArrayList<Card> cards;
-    private String playerName;
 
 
-    public Hand(String playerName){
+    public Hand(){
         cards = new ArrayList<Card>();
-        this.playerName = playerName;
+
     }
 
     public ArrayList<Card> getCards(){
         return this.cards;
-    }
-
-    public String getPlayerName() {
-        return playerName;
     }
 
     public void deal(Card card){

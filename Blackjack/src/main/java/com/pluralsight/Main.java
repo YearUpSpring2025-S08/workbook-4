@@ -12,24 +12,31 @@ public class Main {
         Deck d = new Deck();
         d.shuffle();
 
-        Hand h1 = new Hand(firstPlayerName);
-        Hand h2 = new Hand(secondPlayerName);
+        Player p1 = new Player(firstPlayerName);
+        p1.setHand(new Hand());
+
+        Player p2 = new Player(secondPlayerName);
+        p2.setHand(new Hand());
+
+
+       // Hand h1 = new Hand(firstPlayerName);
+      //  Hand h2 = new Hand(secondPlayerName);
 
 
         for(int i = 0 ; i < 2 ; i++){
             Card c;
             c = d.deal();
             c.flip();
-            h1.deal(c);
+            p1.getHand().deal(c);
 
             //h1.deal(d.deal());
             c = d.deal();
             c.flip();
-            h2.deal(c);
+            p2.getHand().deal(c);
         }
 
-        display(h1);
-        display(h2);
+        display(p1);
+        display(p2);
 
     }
 
@@ -43,12 +50,12 @@ public class Main {
 
     }
 
-    public static void display(Hand hand){
-        System.out.println(hand.getPlayerName() +" has the follow cards:");
-        for(Card card: hand.getCards()){
+    public static void display(Player player){
+        System.out.println(player.getPlayerName() +" has the follow cards:");
+        for(Card card: player.getHand().getCards()){
             display(card);
         }
-        System.out.println("Together they have the value of " + hand.getValue());
+        System.out.println("Together they have the value of " + player.getHand().getValue());
     }
 
 
