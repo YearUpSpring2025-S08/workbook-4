@@ -1,33 +1,35 @@
 package com.pluralsight;
 
 public class Main {
+
+    private static Console console = new Console();
+
     public static void main(String[] args) {
+
+        String firstPlayerName = console.promptForString("Enter the name of the first player: ");
+        String secondPlayerName = console.promptForString("Enter the name of the second player: ");
 
         Deck d = new Deck();
         d.shuffle();
 
-        Hand h1 = new Hand();
+        Hand h1 = new Hand(firstPlayerName);
+        Hand h2 = new Hand(secondPlayerName);
 
-        Card c1 = d.deal();
 
-        c1.flip();
+        for(int i = 0 ; i < 2 ; i++){
+            Card c;
+            c = d.deal();
+            c.flip();
+            h1.deal(c);
 
-        display(c1);
+            //h1.deal(d.deal());
+            c = d.deal();
+            c.flip();
+            h2.deal(c);
+        }
 
-        System.out.println(c1.getPointValue());
-
-        Card c2 = d.deal();
-        c2.flip();
-
-        display(c2);
-        System.out.println(c2.getPointValue());
-
-        h1.deal(c1);
-        h1.deal(c2);
-
-        System.out.println();
-        System.out.println(h1.getValue());
-
+        display(h1);
+        display(h2);
 
     }
 
@@ -40,4 +42,16 @@ public class Main {
         }
 
     }
+
+    public static void display(Hand hand){
+        System.out.println(hand.getPlayerName() +" has the follow cards:");
+        for(Card card: hand.getCards()){
+            display(card);
+        }
+        System.out.println("Together they have the value of " + hand.getValue());
+    }
+
+
+
+
 }
